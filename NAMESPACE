@@ -1,0 +1,3 @@
+export(calculate_methane_flux)
+importFrom(mgcv,gam)
+importFrom(ggplot2,ggsave,ggplot,geom_point,geom_line,geom_text,scale_color_manual,labs,facet_wrap,ggtitle,xlab,ylab)

@@ -1,0 +1,12 @@
+.Rhistory
+.RData
+.Rproj.user
+.Ruserdata
+.Rhistory
+.Renviron
+.Rproj.user/
+.Rhistory
+.DS_Store
+*.png
+*.csv
+inst/extdata/*.csv

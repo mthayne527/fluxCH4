@@ -1,0 +1,21 @@
+Package: fluxCH4
+Type: Package
+Title: Methane Flux Calculation Utilities
+Version: 0.1.0
+Authors@R: person("First", "Last", email = "you@example.com", role = c("aut", "cre"))
+Description: Utilities to calculate methane flux from enclosure concentration time-series,
+    detect ebullition events, and produce diagnostic plots.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    mgcv,
+    dismo,
+    gbm,
+    ggplot2,
+    scales
+Suggests:
+    # Keep suggests minimal; heavy packages used only for examples/tests can go here
+URL: https://example.org/fluxCH4
+BugReports: https://example.org/fluxCH4/issues
+
