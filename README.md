@@ -30,7 +30,7 @@ Small collection of R scripts to calculate methane flux from enclosure concentra
 time-series. This repository is organized as standalone code (not an R package). The
 main analysis function is provided in `R/calculate_methane_flux.R` and a runnable
 example is supplied at `inst/examples/run_example.R` which uses the example data in
-`inst/examples/sample_data.csv`.
+`R/sample_data.csv`.
 
 **Dependencies:**
 - Install required packages before running the example:
