@@ -549,4 +549,24 @@ calculate_methane_flux = function(data, results_directory = NULL, save_directory
   final_results = do.call(rbind, all_results)
   invisible(final_results)
 }
+
+#Run function
+calculate_methane_flux(sample_data,
+                       results_directory = "put your path here for .csv files",
+                       save_directory = "put your path here for reviewing diagnostic plots",
+                       plot_diagnostics = T,
+                       unit = "nmol/m2/s", 
+                       # start_id = "str5",
+                       r_squared_diffusive = 0.99, 
+                       window_size_concentration_smoother = 3,
+                       window_size_residuals_smoother = 3,
+                       quantile_threshold = 0.90, 
+                       dynamic_multiplier = 2,
+                       predictors = predictors,
+                       learning_rate = c(0.001, 0.002, 0.003, 0.004, 0.005),
+                       tree_complexity = 5, 
+                       bag_fraction = 1,
+                       gam_knots = 5,
+                       min_ebullition_sequence = 20,
+                       pressure_units = "mbar")
  
