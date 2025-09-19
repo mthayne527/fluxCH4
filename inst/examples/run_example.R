@@ -1,4 +1,4 @@
-## Example usage of calculate_methane_flux using (inst\examples\sample_data.csv)
+## Example usage of calculate_methane_flux using (R\sample_data.csv)
 ## This script is intended to be copy/pasted or sourced from the repository root
 ## and does not assume the code is installed as a package. Make sure the
 ## function calculate_methane_flux is defined in your R session (source the
