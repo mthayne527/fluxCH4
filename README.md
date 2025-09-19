@@ -32,7 +32,24 @@ main analysis function is provided in `R/calculate_methane_flux.R` and a runnabl
 example is supplied at `inst/examples/run_example.R` which uses the example data in
 `R/sample_data.csv`.
 
-Possible ebullition‑detection settings: learning_rate = c(0.001,0.002,0.003,0.004,0.005), tree_complexity = 5, and bag_fraction = 1 (deterministic); smoothing and thresholding choices were window_size_concentration_smoother (used as needed; default 0), window_size_residuals_smoother = 5, quantile_threshold = 0.95, dynamic_multiplier = 2 (higher → fewer events), min_ebullition_sequence = 8 (seconds), and r_squared_diffusive = 0.99. In short, the algorithm fits a GAM to each ID (diffusive if R^2 > r_squared_diffusive), otherwise trains GBM(s) via dismo::gbm.step (10‑fold CV by default), selects the best model (e.g., ≥1000 trees with minimal deviance), computes smoothed residuals, applies a dynamic threshold (std × dynamic_multiplier) and a concentration‑difference quantile test to flag candidate points, groups flagged points into sequences with a 5‑point buffer, and classifies sequences meeting the min_ebullition_sequence length as events. Required input columns are id, time, concentration (ppm), volume, area, temperature_celsius, and air_pressure; optional predictors used in the study include gas_pressure, gas_temp, ph, orp, and wt. The script saves diagnostic plots to save_directory for interactive review (the code prompts you to review inside of Rstudio).
+Possible ebullition‑detection settings: learning_rate = c(0.001,0.002,0.003,0.004,0.005), 
+tree_complexity = 5, and bag_fraction = 1 (deterministic); 
+smoothing and thresholding window_size_concentration_smoother (used as needed; default 0), 
+window_size_residuals_smoother = 5, quantile_threshold = 0.95, 
+dynamic_multiplier = 2 (higher → fewer events), min_ebullition_sequence = 8 (seconds), 
+and r_squared_diffusive = 0.99. 
+In short, the algorithm fits a GAM to each ID (diffusive if R^2 > r_squared_diffusive), 
+otherwise trains GBM(s) via dismo::gbm.step (10‑fold CV by default), 
+selects the best model (e.g., ≥1000 trees with minimal deviance), 
+computes smoothed residuals, applies a dynamic threshold (std × dynamic_multiplier) 
+and a concentration‑difference quantile test to flag candidate points, 
+groups flagged points into sequences with a 5‑point buffer, 
+and classifies sequences meeting the min_ebullition_sequence length as events. 
+Required input columns are id, time, concentration (ppm), 
+volume, area, temperature_celsius, and air_pressure; optional predictors 
+used in the study include gas_pressure, gas_temp, ph, orp, and wt. 
+The script saves diagnostic plots to save_directory for interactive 
+review (the code prompts you to review inside of Rstudio).
 
 **Dependencies:**
 - Install required packages before running the example:
