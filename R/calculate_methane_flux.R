@@ -40,7 +40,7 @@ calculate_methane_flux = function(data, results_directory = NULL, save_directory
                                   window_size_concentration_smoother = 0, window_size_residuals_smoother = 5,
                                   quantile_threshold = 0.95, dynamic_multiplier = 2, predictors = NULL,
                                   learning_rate = c(0.001, 0.002, 0.003, 0.004, 0.005),
-                                  tree_complexity = 5, bag_fraction = 0.15, gam_knots = 5, min_ebullition_sequence = 8,
+                                  tree_complexity = 5, bag_fraction = 1, gam_knots = 5, min_ebullition_sequence = 8,
                                   R_value = 8.314, pressure_units = "Pa") {
   
   # Packages required from CRAN/Bioconductor (only non-base packages listed)
