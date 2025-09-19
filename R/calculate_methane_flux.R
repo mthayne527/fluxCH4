@@ -550,6 +550,25 @@ calculate_methane_flux = function(data, results_directory = NULL, save_directory
   invisible(final_results)
 }
 
+
+#Data frame format for running algorithm
+sample_data = data.frame(
+  id = flux_df$site,#unique identifier for each chamber deployment
+  time = as.numeric(flux_df$numbered_column),#time of measurement in seconds from start of deployment
+  concentration = flux_df$CH4_ppm,#make sure CH4 is in ppm not ppb
+  volume = flux_df$volume,#volume of chamber
+  area = flux_df$area,#area of chamber base
+  temperature_celsius = flux_df$air_temperature,#temperature in celsius
+  air_pressure = flux_df$air_pressure,#air pressure in Pa (or other units, see argument)
+  gas_pressure = flux_df$cavity_pres_kpa,# here and below are predictor variables for BRT isolating ebullition events (add as many as you like)
+  gas_temp = flux_df$Cavity_temp,
+  ph = flux_df$pH,
+  orp = flux_df$Redox.Potential,
+  wt = flux_df$Water.Temperature
+)
+
+predictors = c(8:12) # these are predictors you have included for BRT fitting (column numbers in sample_data) 
+
 #Run function
 calculate_methane_flux(sample_data,
                        results_directory = "put your path here for .csv files",
