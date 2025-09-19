@@ -44,7 +44,7 @@ install.packages(c("mgcv", "dismo", "gbm", "ggplot2", "scales"))
 
 ```r
 source("R/calculate_methane_flux.R")
-source("inst/examples/run_example.R")  # example will read inst/examples/sample_data.csv
+source("inst/examples/run_example.R")  # example will use R/sample_data.csv
 ```
 
 - Or run the example from PowerShell / command line:
@@ -54,7 +54,7 @@ Rscript -e "source('inst/examples/run_example.R')"
 ```
 
 **Data**
-- Example data is provided at `inst/examples/sample_data.csv`. The example script
+- Example data is provided at `R/sample_data.csv`. The example script
 	expects columns including: `id`, `time`, `concentration` (CH4 in ppm), `volume`,
 	`area`, `temperature_celsius`, and `air_pressure`. Additional predictor columns
 	(e.g., `gas_pressure`, `gas_temp`, `ph`, `orp`, `wt`) are optional and will be
