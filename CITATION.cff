@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the article below and the software version you used."
+title: "fluxCH4: chamber flux algorithm for CH4 and CO2"
+type: software
+version: 1.1.0
+license: MIT
+repository-code: "https://github.com/mthayne527/fluxCH4"
+authors:
+  - family-names: Thayne
+    given-names: Michael W.
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Thayne
+      given-names: Michael W.
+    - family-names: Kemper
+      given-names: Karl
+    - family-names: Wille
+      given-names: Christian
+    - family-names: Kalhori
+      given-names: Aram
+    - family-names: Sachs
+      given-names: Torsten
+  title: "Spatiotemporal variability and environmental controls on aquatic methane emissions in an Arctic permafrost catchment"
+  journal: "Biogeosciences"
+  volume: 23
+  start: 477
+  end: 495
+  year: 2026
+  doi: "10.5194/bg-23-477-2026"

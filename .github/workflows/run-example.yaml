@@ -1,21 +1,37 @@
-name: Run example script
+name: Checks and examples
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  run-example:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install system libraries (needed by dismo -> raster/terra)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgdal-dev libgeos-dev libproj-dev libudunits2-dev
+
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
-      - name: Install dependencies
+        with:
+          use-public-rspm: true
+
+      - name: Install R packages
         run: |
-          R -e "install.packages(c('mgcv','dismo','gbm','ggplot2','scales'), repos='https://cloud.r-project.org')"
-      - name: Run example script
-        run: |
-          Rscript -e "source('R/calculate_methane_flux.R'); source('inst/examples/run_example.R')"
+          Rscript -e "install.packages(c('mgcv','dismo','gbm','ggplot2','scales'))"
+
+      - name: Run checks
+        run: Rscript tests/run_checks.R
+
+      - name: Run CO2 example
+        run: Rscript inst/examples/run_example_CO2.R
+
+      - name: Run CH4 example
+        run: Rscript inst/examples/run_example_CH4.R
